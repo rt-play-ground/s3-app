@@ -16,7 +16,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /* rtempalli created on 4/6/20 inside the package - com.company.app */
-@EnableAutoConfiguration
+@Configuration
 @EnableSwagger2
 @SpringBootApplication
 @ComponentScan({ "com.company.app.controllers"})
@@ -32,7 +32,8 @@ public class Application {
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.company.app.controllers"))
                 .paths(PathSelectors.regex("/.*"))
-                .build().apiInfo(apiEndPointsInfo());
+                .build()
+                .apiInfo(apiEndPointsInfo());
     }
 
     private ApiInfo apiEndPointsInfo() {
